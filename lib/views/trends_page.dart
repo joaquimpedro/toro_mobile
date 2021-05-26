@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toro_mobile/commons/page_state.dart';
+import 'package:toro_mobile/components/stock_tile.dart';
 import 'package:toro_mobile/controllers/trends_page_controller.dart';
+import 'package:toro_mobile/models/stock.dart';
 
 class TrendsPage extends StatefulWidget {
 
@@ -14,6 +16,11 @@ class _TrendsPageState extends State<TrendsPage> {
   final controller = TrendsPageController();
 
   _success() {
+    return ListView.builder(
+      itemCount: 5,
+      itemBuilder: (context, index) {
+        return StockTile(Stock(symbol: 'aa', currentPrice: 10.1));
+      });
   }
 
   _error() {

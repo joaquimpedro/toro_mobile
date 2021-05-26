@@ -8,7 +8,7 @@ class TrendsPageController {
 
   Future start() async {
     //TODO fazer o load, atualizar a tela e o state.
-    state.value = PageState.loading;
+    state.value = PageState.success;
   }
 
 }
