@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:toro_mobile/config/dependency_injection.dart';
 import 'package:toro_mobile/models/stock.dart';
 
 
@@ -10,7 +12,9 @@ class StockRepository {
   static const String TRENDS = '/trends';
   static const String ORDER = '/order';
 
-  final dio = Dio();
+  final injector = DependencyInjection().initialise(Injector());
+  Dio get dio => injector.get<Dio>();
+
 
   Future<List<Stock>> fetchTrends() async {
     var response = await dio.get(BASE_URL + TRENDS);
