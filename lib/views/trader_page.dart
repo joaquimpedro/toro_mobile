@@ -31,7 +31,7 @@ class _TraderPage extends State<TraderPage> {
                   color: Colors.black, fontWeight: FontWeight.bold
                 ),
               ),
-              Text('Investido: ${controller.trader!.financialAssets.map((e) => e.amount * e.unitPrice).reduce((a, b) => a + b)}',
+              Text('Investido: ${getTotalInvestido().toStringAsFixed(2)}',
                 style: TextStyle(
                     color: Colors.black, fontWeight: FontWeight.bold
                 ),
@@ -41,16 +41,26 @@ class _TraderPage extends State<TraderPage> {
           SizedBox(height: 10,),
           Container(
             height: MediaQuery.of(context).size.height - 100,
-            child: ListView.builder(
+            child: hasFinancialAssets() ?
+            ListView.builder(
               itemCount: controller.trader != null ? controller.trader!.financialAssets.length : 0,
               itemBuilder: (context, index) {
                 return TraderStockTile(controller.trader!.financialAssets.elementAt(index));
               },
-            ),
+            ) :
+            Container(),
           ),
         ],
       ),
     );
+  }
+
+  bool hasFinancialAssets() => controller.trader != null && controller.trader!.financialAssets.length > 0;
+
+  double getTotalInvestido() {
+    return controller.trader!.financialAssets.length > 0 ?
+     controller.trader!.financialAssets.map((e) => e.amount * e.unitPrice).reduce((a, b) => a + b) :
+        0;
   }
 
   _error() {

@@ -9,7 +9,7 @@ class Trader {
 
   Trader.fromJson(Map<String, dynamic> json) {
     name = json['name'];
-    accountAmmount = json['accountAmmount'];
+    accountAmmount = json['accountAmmount'].toDouble();
 
     if (json['financialAssets'] != null) {
       financialAssets = <FinancialAsset>[];
