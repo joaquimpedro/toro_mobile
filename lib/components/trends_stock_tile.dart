@@ -19,6 +19,7 @@ class TrendStockTile extends StatelessWidget {
         onPressed: () async {
           var response = await _showOrderDialog(context, stock);
           if(response != null) {
+            Navigator.of(context).pushNamed('/trader');
             showNotification(context, response.keys.first, response.values.first);
           }
         },

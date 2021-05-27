@@ -5,7 +5,7 @@ import 'package:toro_mobile/models/trader.dart';
 
 class TraderRepository {
 
-  static const String TRADER = '/trader';
+  static const String TRADER = '/trader/1';
 
   final injector = Injector();
   Dio get dio => injector.get<Dio>();

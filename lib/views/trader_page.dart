@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toro_mobile/commons/page_state.dart';
+import 'package:toro_mobile/commons/side_menu.dart';
 import 'package:toro_mobile/components/trader_stock_tile.dart';
 
 import 'package:toro_mobile/controllers/trader_page_controller.dart';
@@ -18,11 +19,37 @@ class _TraderPage extends State<TraderPage> {
   final controller = TraderPageController();
 
   _success() {
-    return ListView.builder(
-      itemCount: controller.trader != null ? controller.trader!.financialAssets.length : 0,
-      itemBuilder: (context, index) {
-        return TraderStockTile(controller.trader!.financialAssets.elementAt(index));
-      },
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text('Saldo em conta: ${controller.trader!.accountAmmount.toStringAsFixed(2)}',
+                style: TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.bold
+                ),
+              ),
+              Text('Investido: ${controller.trader!.financialAssets.map((e) => e.amount * e.unitPrice).reduce((a, b) => a + b)}',
+                style: TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.bold
+                ),
+              )
+            ],
+          ),
+          SizedBox(height: 10,),
+          Container(
+            height: MediaQuery.of(context).size.height - 100,
+            child: ListView.builder(
+              itemCount: controller.trader != null ? controller.trader!.financialAssets.length : 0,
+              itemBuilder: (context, index) {
+                return TraderStockTile(controller.trader!.financialAssets.elementAt(index));
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -72,6 +99,7 @@ class _TraderPage extends State<TraderPage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      drawer: SideMenu(),
       appBar: AppBar(
         title: Text('Minhas ações!'),
       ),

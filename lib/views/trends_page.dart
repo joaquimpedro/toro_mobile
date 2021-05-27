@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toro_mobile/commons/page_state.dart';
+import 'package:toro_mobile/commons/side_menu.dart';
 import 'package:toro_mobile/components/trends_stock_tile.dart';
 import 'package:toro_mobile/controllers/trends_page_controller.dart';
 import 'package:toro_mobile/models/stock.dart';
@@ -71,34 +72,7 @@ class _TrendsPageState extends State<TrendsPage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      drawer: Drawer(
-        child: Column(
-          children: [
-            UserAccountsDrawerHeader(
-                currentAccountPicture: ClipRRect(
-                  borderRadius: BorderRadius.circular(80),
-                  child: Icon(Icons.person),
-                ),
-                accountName: Text('Kindas'),
-                accountEmail: Text('pedro.quindin@gmail.com'),
-            ),
-            ListTile(
-              leading: Icon(Icons.star_border),
-              title: Text('Trends'),
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/');
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Minhas Acões'),
-              onTap: () {
-                Navigator.of(context).pushNamed('/stocks');
-              },
-            )
-          ],
-        ),
-      ),
+      drawer: SideMenu(),
       appBar: AppBar(
         title: Text('As top 5 de hoje!'),
       ),
