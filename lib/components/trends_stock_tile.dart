@@ -13,7 +13,7 @@ class TrendStockTile extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(child: Icon(Icons.apartment),),
       title: Text(stock.symbol),
-      subtitle: Text(stock.currentPrice.toStringAsFixed(2)),
+      subtitle: Text('R\$${stock.currentPrice.toStringAsFixed(2)}'),
       trailing: IconButton(
         icon: Icon(Icons.attach_money),
         onPressed: () async {

@@ -18,7 +18,8 @@ class TraderStockTile extends StatelessWidget {
       subtitle: Row(
         children: [
           Text('Qtd: ${financialAsset.amount}'),
-          Text('Vlr Unitário: ${financialAsset.unitPrice}')
+          SizedBox(width: 10,),
+          Text('Vlr Unitário: R\$${financialAsset.unitPrice}')
         ],
       ),
     );

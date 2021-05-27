@@ -26,12 +26,12 @@ class _TraderPage extends State<TraderPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text('Saldo em conta: ${controller.trader!.accountAmmount.toStringAsFixed(2)}',
+              Text('Saldo em conta: R\$${controller.trader!.accountAmmount.toStringAsFixed(2)}',
                 style: TextStyle(
                   color: Colors.black, fontWeight: FontWeight.bold
                 ),
               ),
-              Text('Investido: ${getTotalInvestido().toStringAsFixed(2)}',
+              Text('Investido: R\$${getTotalInvestido().toStringAsFixed(2)}',
                 style: TextStyle(
                     color: Colors.black, fontWeight: FontWeight.bold
                 ),
