@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toro_mobile/commons/page_state.dart';
-import 'package:toro_mobile/commons/side_menu.dart';
+import 'package:toro_mobile/components/side_menu.dart';
 import 'package:toro_mobile/components/trends_stock_tile.dart';
 import 'package:toro_mobile/controllers/trends_page_controller.dart';
 import 'package:toro_mobile/models/stock.dart';
