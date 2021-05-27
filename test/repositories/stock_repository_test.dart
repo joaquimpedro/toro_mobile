@@ -29,7 +29,7 @@ main() {
       when(dio.get(any)).thenAnswer((_) async => Response(data: responseData, statusCode: 200, requestOptions: RequestOptions(path: '')));
 
       final list = await repository.fetchTrends();
-      expect(list.length, responseData.length);
+      expect(responseData.length, list.length);
     });
   });
 
@@ -43,8 +43,8 @@ main() {
 
       Map<bool, String> result = await repository.orderStock(stock, 3);
 
-      expect(true, result.keys.first);
-      expect(response, result.values.first);
+      expect(result.keys.first, true);
+      expect(result.values.first, response);
     });
 
     test('deve dar erro quando o ativo for inválido', () async {
@@ -61,8 +61,8 @@ main() {
 
       Map<bool, String> result = await repository.orderStock(stock, 3);
 
-      expect(false, result.keys.first);
-      expect(response.data, result.values.first);
+      expect(result.keys.first, false);
+      expect(result.values.first, response.data);
     });
 
     test('deve dar erro quando o saldo for insuficiente', () async {
@@ -79,8 +79,8 @@ main() {
 
       Map<bool, String> result = await repository.orderStock(stock, 3);
 
-      expect(false, result.keys.first);
-      expect(response.data, result.values.first);
+      expect(result.keys.first, false);
+      expect(result.values.first, response.data);
     });
 
     test('deve dar erro quando a api está fora', () async {
@@ -95,8 +95,8 @@ main() {
 
       Map<bool, String> result = await repository.orderStock(stock, 3);
 
-      expect(false, result.keys.first);
-      expect('Não foi possível acessar a Toro.', result.values.first);
+      expect(result.keys.first, false);
+      expect(result.values.first, 'Não foi possível acessar a Toro.');
     });
   });
 
