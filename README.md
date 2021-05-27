@@ -1,16 +1,34 @@
-# toro_mobile
+# Toro Mobile
 
 Aplicativo Toro para dispositivos móveis
 
-## Getting Started
+## Requisitos
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+- [Flutter](https://flutter.dev/docs/get-started/install)
+- Android Studio ou VSCode
+- Android SDK, API lvl 30
+- Dispositivo Android conectado no ADB ou um emulador
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Execução
+_Não foi criado build._
+Deve ser executado pelo Android Studio, VS Code ou CLI.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##### CLI
+Execute ``flutter doctor`` pra verificar sua instalação.
+Execute ``flutter run -d deviceID`` onde o _deviceId_ é id do dispotivo, seja web, celular ou emulador.
+
+### Dependências utilizadas
+
+##### Projeto
+  - [Dio](https://pub.dev/packages/dio)
+    _Utilizado pra fazer requisições HTTP_
+  - [flutter_simple_dependency_injection](https://pub.dev/packages/flutter_simple_dependency_injection)
+    Utilizado pra fazer a injeção de dependência
+  - [NumberPicker](https://pub.dev/packages/numberpicker)
+    Componente de seleção numerica em sppiner.
+##### Teste
+  - [Mockito](https://pub.dev/packages/mockito)
+    _Utilizado nos testes_
+  - [build_runner]()
+    _Utilizado pra gerar arquivos de Mock para entidades mockadas_
