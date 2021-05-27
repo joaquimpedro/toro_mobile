@@ -12,7 +12,7 @@ class StockRepository {
   static const String TRENDS = '/trends';
   static const String ORDER = '/order';
 
-  final injector = DependencyInjection().initialise(Injector());
+  final injector = Injector();
   Dio get dio => injector.get<Dio>();
 
 

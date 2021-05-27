@@ -19,11 +19,21 @@ class _TrendsPageState extends State<TrendsPage> {
     return ListView.builder(
       itemCount: 5,
       itemBuilder: (context, index) {
-        return StockTile(Stock(symbol: 'aa', currentPrice: 10.1));
-      });
+        return StockTile(controller.stocks.elementAt(index));
+      },
+
+    );
   }
 
   _error() {
+    return Center(
+      child: ElevatedButton(
+        child: Text('Tentar novamente'),
+        onPressed: () {
+          controller.start();
+        },
+      ),
+    );
   }
 
   _loading() {
