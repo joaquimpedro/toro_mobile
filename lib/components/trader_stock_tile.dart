@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:toro_mobile/components/order_stock_dialog.dart';
+import 'package:toro_mobile/models/financial_assets.dart';
 import 'package:toro_mobile/models/stock.dart';
+import 'package:toro_mobile/models/trader.dart';
 
-class TrendStockTile extends StatelessWidget {
+class TraderStockTile extends StatelessWidget {
 
-  final Stock stock;
+  final FinancialAsset financialAsset;
 
-  TrendStockTile(this.stock);
+  TraderStockTile(this.financialAsset);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(child: Icon(Icons.apartment),),
-      title: Text(stock.symbol),
-      subtitle: Text(stock.currentPrice.toStringAsFixed(2)),
-      trailing: IconButton(
-        icon: Icon(Icons.attach_money),
-        onPressed: () async {
-          var response = await _showOrderDialog(context, stock);
-          if(response != null) {
-            showNotification(context, response.keys.first, response.values.first);
-          }
-        },
-        tooltip: 'Comprar',
+      title: Text(financialAsset.symbol),
+      subtitle: Row(
+        children: [
+          Text('Qtd: ${financialAsset.amount}'),
+          Text('Vlr Unitário: ${financialAsset.unitPrice}')
+        ],
       ),
-
     );
   }
 

@@ -17,9 +17,9 @@ class _TrendsPageState extends State<TrendsPage> {
 
   _success() {
     return ListView.builder(
-      itemCount: 5,
+      itemCount: controller.stocks.length,
       itemBuilder: (context, index) {
-        return TrendStockTile(controller.stocks.elementAt(index));
+        return TrendStockTile(controller.stocks.elementAt(index > 4 ? 1 : index));
       },
 
     );
@@ -71,6 +71,34 @@ class _TrendsPageState extends State<TrendsPage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+                currentAccountPicture: ClipRRect(
+                  borderRadius: BorderRadius.circular(80),
+                  child: Icon(Icons.person),
+                ),
+                accountName: Text('Kindas'),
+                accountEmail: Text('pedro.quindin@gmail.com'),
+            ),
+            ListTile(
+              leading: Icon(Icons.star_border),
+              title: Text('Trends'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Minhas Acões'),
+              onTap: () {
+                Navigator.of(context).pushNamed('/stocks');
+              },
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text('As top 5 de hoje!'),
       ),

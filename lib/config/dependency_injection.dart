@@ -7,6 +7,7 @@ class DependencyInjection {
 
     injector.map<StockRepository>((i) => StockRepository());
     injector.map<Dio>((i) => Dio(BaseOptions(
+      baseUrl: 'https://10.0.2.2:5001/api',
       connectTimeout: 10000
     )));
 
