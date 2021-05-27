@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:toro_mobile/components/order_stock_dialog.dart';
 import 'package:toro_mobile/models/stock.dart';
 
-class StockTile extends StatelessWidget {
+class TrendStockTile extends StatelessWidget {
 
   final Stock stock;
 
-  StockTile(this.stock);
+  TrendStockTile(this.stock);
 
   @override
   Widget build(BuildContext context) {

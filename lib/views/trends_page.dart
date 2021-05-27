@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toro_mobile/commons/page_state.dart';
-import 'package:toro_mobile/components/stock_tile.dart';
+import 'package:toro_mobile/components/trends_stock_tile.dart';
 import 'package:toro_mobile/controllers/trends_page_controller.dart';
 import 'package:toro_mobile/models/stock.dart';
 
@@ -19,7 +19,7 @@ class _TrendsPageState extends State<TrendsPage> {
     return ListView.builder(
       itemCount: 5,
       itemBuilder: (context, index) {
-        return StockTile(controller.stocks.elementAt(index));
+        return TrendStockTile(controller.stocks.elementAt(index));
       },
 
     );
